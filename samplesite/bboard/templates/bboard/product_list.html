@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product List</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bboard/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Admin Panel</h2>
+            <a href="{% url 'add_product' %}">Add New Product</a>
+        </div>
+        <div class="content">
+            <h1>Product List</h1>
+            <ul>
+                {% for product in products %}
+                    <li>{{ product.name }} - ${{ product.price }} (Quantity: {{ product.quantity }})</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

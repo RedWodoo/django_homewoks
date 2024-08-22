@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Delete</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bboard/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Admin Panel</h2>
+            <a href="{% url 'task_list' %}">Task List</a>
+        </div>
+        <div class="content">
+            <h1>Confirm Delete</h1>
+            <p>Are you sure you want to delete "{{ task.title }}"?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit">Confirm</button>
+                <a href="{% url 'task_list' %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
